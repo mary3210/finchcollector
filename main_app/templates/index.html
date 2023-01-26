@@ -1,0 +1,44 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>potatocollector</title>
+    </head>
+    <body>
+        <h1>potatocollector Index</h1>
+    </body>
+</html> -->
+
+{% extends 'base.html' %}
+
+{% comment %} for head title tags and helping us with SEO {% endcomment %}
+{% block title %}Artist{% endblock  %}
+
+{% block content %}
+
+<h1 class="title pt-5">Trending Potatoes</h1>
+<div class="gallery">
+  {% for Index in Indexes %}
+  <a href="">
+    <div class="card">
+      <div class="card-image">
+        <figure class="image is-square">
+          <img src="{{Index.image}}" alt="{{Index.name}}" />
+        </figure>
+      </div>
+      <div class="card-header">
+        <p class="card-header-title">{{Index.name}}</p>
+      </div>
+    </div>
+  </a>
+	{% empty %}
+  <article class="message">
+    <div class="message-header">
+      <p>No potato Available</p>
+    </div>
+  </article>
+  {% endfor %}
+</div>
+{% endblock %}
